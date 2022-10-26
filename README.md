@@ -2,7 +2,7 @@
 Notion notebook: https://glimmer-brie-6b7.notion.site/NLRP3-Simulation-Experiment-dbdca9c949ed45328ed2d1f312a3cf99
 
 ## Refence
-- Simulation of Cryo-EM Ensembles from Atomic Models of Molecules Exhibiting Continuous Conformations (Seitz, Acosta-Reyes, Schwander, Frank): https://www.biorxiv.org/content/10.1101/864116v1. (github:https://github.com/evanseitz/cryoEM_synthetic_generation)
+- Seitz, E., Acosta-Reyes, F., Schwander, P., & Frank, J. (2019). Simulation of cryo-EM ensembles from atomic models of molecules exhibiting continuous conformations.https://www.biorxiv.org/content/10.1101/864116v1. (github: https://github.com/evanseitz/cryoEM_synthetic_generation)
 
 - ManifoldEM: https://github.com/evanseitz/ManifoldEM_Python
 
