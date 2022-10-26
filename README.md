@@ -1,6 +1,7 @@
 # Cryo-EM Synthethic Generation
 Notion notebook: https://www.notion.so/NLRP3-Simulation-Experiment-dbdca9c949ed45328ed2d1f312a3cf99
-ref: https://github.com/evanseitz/cryoEM_synthetic_generation
+
+Refence: https://github.com/evanseitz/cryoEM_synthetic_generation
 
 ## Softwares and how to use:
 See the details of downloading in the Notion notebook appendix.
@@ -10,5 +11,9 @@ See the details of downloading in the Notion notebook appendix.
 - RELION: **Deactivate** conda before run the bash script.
 
 ## Python environment:
-Use ManifoldEM environment for every python script.
+Use ManifoldEM environment for every python script. 
+
+`conda create env -f ManifoldEM_env_linux.yml`
+
+
 
