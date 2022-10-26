@@ -6,14 +6,14 @@ Notion notebook: https://glimmer-brie-6b7.notion.site/NLRP3-Simulation-Experimen
 
 - ManifoldEM: https://github.com/evanseitz/ManifoldEM_Python
 
-## Softwares and how to use:
-See the details of downloading in the Notion notebook appendix.
+## How to use
+See the download details in the Notion notebook appendix.
 - Chimera (UCSF): `Chimera --nogui .py`.
 - Phenix: `source phenix_env.sh` before run the bash script.
 - EMAN2: Activate conda before run the bash script.
 - RELION: **Deactivate** conda before run the bash script.
 
-## Python environment:
+## Python environment
 Use ManifoldEM environment for every python script. 
 
 `conda create env -f ManifoldEM_env_linux.yml`
