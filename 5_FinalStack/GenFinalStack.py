@@ -20,7 +20,7 @@ parDir = os.path.dirname(pyDir) #parent directory
 dataDir = os.path.join(parDir, '4_Projection/stacks') #location of all .star and .mrcs
 occFile = os.path.join(parDir, '3_Occupancies/1CM_20states.npy')
 #output file
-fname = f'NLRP3_{selPDs}PDs_SNR{selSNR}'
+fname = f'NLRP3_{selPDs}PDs_SNR' + f'{selSNR}'.replace(".", "")
 stackOut = os.path.join(parDir, '%s.mrcs' % fname)
 alignOut = os.path.join(parDir, '%s.star' % fname)
 

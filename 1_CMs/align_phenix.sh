@@ -1,6 +1,6 @@
 # script to re-center all PDBs based on common center-of-mass coordinates
 
-for i in /home/danlin/synth/1_CMs/CMs/*.pdb
+for i in /home/danlin/synth/1_CMs/CM2/*.pdb
 do
     out=`basename $i`
     outFile=/home/danlin/synth/1_CMs/align_CMs/$out
