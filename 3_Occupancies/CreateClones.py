@@ -20,7 +20,7 @@ import pandas as pd
 pyDir = os.path.dirname(os.path.abspath(__file__)) #python file directory
 parDir = os.path.dirname(pyDir) #parent directory
 origDir = os.path.join(parDir, '2_3Dmaps/MRCs')
-occPath = os.path.join(pyDir, '1CM_20states.npy')
+occPath = os.path.join(pyDir, '2CM_20states.npy')
 cloneDir = os.path.join(pyDir, 'MRC_clones')
 
 occFile = np.load(occPath)
@@ -28,7 +28,8 @@ states = 20
 
 occ = []
 for i in range(1, states+1):
-        occ.append(occFile[i-1])
+    for j in range(1, states+1): #[1,20]
+        occ.append(occFile[j-1][i-1])
 	
 occMax = int(np.amax(occ))
 	

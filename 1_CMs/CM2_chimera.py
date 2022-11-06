@@ -16,12 +16,13 @@ for root, dirs, files in os.walk(cm1Dir):
             if file.endswith(".pdb"):
                 cm1Paths.append(os.path.join(root, file))
 
-mov = .25
+mov = 1.25
+states = 5
 for cm1 in cm1Paths:
     outName = os.path.basename(cm1)[:-4] # remove .pdb filename
     rc('open' + cm1)
     rc('split #0') # chain A_head #0.1; chian B # 0.2; chain A_tail #0.3 
-    for j in range(1,21):
+    for j in range(1,states+1):
         if j == 1: #don't move for state 1
             rc('combine #0') # combine model would be #1
             rc('write relative #0.1 format pdb #1 %s/%s_0%s.pdb' % (outDir,outName,j))

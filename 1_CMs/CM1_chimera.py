@@ -15,8 +15,9 @@ rc('open' + A_head) # model #0
 rc('open' + A_tail) # model #1
 rc('open' + B_ball) # model #2
 
-rot = .5 
-for i in range(1,21): # numbers of states to generate
+rot = 1.25
+states = 5
+for i in range(1,states+1): # numbers of states to generate
     if i == 1: #don't rotate for state 1
         rc('combine #0-2, name state_%s' % i) # combine model would be #3
         rc('write relative #1 format pdb #3 %s/state_0%s.pdb' % (outDir,i))
