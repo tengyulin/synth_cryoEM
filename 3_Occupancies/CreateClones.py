@@ -20,7 +20,7 @@ import pandas as pd
 pyDir = os.path.dirname(os.path.abspath(__file__)) #python file directory
 parDir = os.path.dirname(pyDir) #parent directory
 origDir = os.path.join(parDir, '2_3Dmaps/MRCs')
-occPath = os.path.join(pyDir, '2CM_20states.npy')
+occPath = os.path.join(pyDir, '3CM_20states.npy')
 cloneDir = os.path.join(pyDir, 'MRC_clones')
 
 occFile = np.load(occPath)
@@ -28,8 +28,9 @@ states = 20
 
 occ = []
 for i in range(1, states+1):
-    for j in range(1, states+1): #[1,20]
-        occ.append(occFile[j-1][i-1])
+    for j in range(1, states+1): 
+        for k in range(1, states+1):
+            occ.append(occFile[k-1][j-1][i-1])
 	
 occMax = int(np.amax(occ))
 	
@@ -42,15 +43,18 @@ fnames.sort(key=lambda f: list(filter(str.isdigit, f))) #Python3; i.e., https://
 
 idx = 0
 for i in fnames:
-    short = i[:-4]
-    new1 = short + ('_%02d.mrc' % 1)
-    shutil.copy('%s/%s' % (origDir,i), '%s/%s' % (cloneDir,new1))
-    print(i)
-    for j in range(2,occMax+1):
-        if occ[idx] >= j:
-            #short = i[:-4]
-            #print(short)
-            new = short + ('_%02d.mrc' % j)
-            shutil.copy('%s/%s' % (origDir,i), '%s/%s' % (cloneDir,new))
-    idx += 1
+    if occ[idx] == 0:
+        idx += 1
+    else:
+        short = i[:-4]
+        new1 = short + ('_%02d.mrc' % 1)
+        shutil.copy('%s/%s' % (origDir,i), '%s/%s' % (cloneDir,new1))
+        print(i)
+        for j in range(2,occMax+1):
+            if occ[idx] >= j:
+                #short = i[:-4]
+                #print(short)
+                new = short + ('_%02d.mrc' % j)
+                shutil.copy('%s/%s' % (origDir,i), '%s/%s' % (cloneDir,new))
+        idx += 1
 print(sum(occ),"MRCs")

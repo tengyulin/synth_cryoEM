@@ -11,14 +11,14 @@ from scipy import stats
 from decimal import Decimal
 
 # Select #PDs and SNR
-selPDs = 180
+selPDs = 30
 selSNR = 0.1
 
 
 pyDir = os.path.dirname(os.path.abspath(__file__)) #python file directory
 parDir = os.path.dirname(pyDir) #parent directory
 dataDir = os.path.join(parDir, '4_Projection/stacks') #location of all .star and .mrcs
-occFile = os.path.join(parDir, '3_Occupancies/1CM_20states.npy')
+occFile = os.path.join(parDir, '3_Occupancies/3CM_20states.npy')
 #output file
 fname = f'NLRP3_{selPDs}PDs_SNR' + f'{selSNR}'.replace(".", "")
 stackOut = os.path.join(parDir, '%s.mrcs' % fname)
@@ -32,6 +32,7 @@ if os.path.exists(alignOut):
 occ = np.load(occFile)
 # Load one stack to check the dim
 tempPath = os.path.join(dataDir, sorted(os.listdir(dataDir))[0])
+#print(tempPath)
 temp_stack = mrcfile.open(tempPath)
 PDs, box, box = temp_stack.data.shape
 temp_stack.close
@@ -168,7 +169,7 @@ img_array = mrcfile.new_mmap(stackOut, shape=(snapshots,box,box), mrc_mode=2, ov
 idx = 0 #index for stack/stars
 img = 0 #index for every individual image in new stack
 np.random.seed(915)
-PD_select = np.random.randint(0,812,size=PDs)
+PD_select = np.random.randint(0,362,size=PDs)
 for z in stackPaths:
     stack = mrcfile.open(z)
     starPath = starPaths[idx]

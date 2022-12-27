@@ -16,8 +16,8 @@ for root, dirs, files in os.walk(cm2Dir):
             if file.endswith(".pdb"):
                 cm2Paths.append(os.path.join(root, file))
 
-rot = 1.25
-states = 5
+rot = 0.25
+states = 20
 for cm2 in cm2Paths:
     outName = os.path.basename(cm2)[:-4] # remove .pdb filename
     rc('open' + cm2)
